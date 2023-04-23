@@ -1,0 +1,65 @@
+
+{% extends "rms_app/base.html" %}
+
+{% block content %}
+{% load static %}
+<div class="foodtable">
+    <section id="food-section">
+        {% if food_obj %}
+        <h1 class="avail">Menu</h1>
+        <div>
+            <a href="{% url 'rms-food' %}">All</a>
+            <a href="{% url 'rms-food_starters' %}">Starters</a>
+            <a href="{% url 'rms-food_maincourse' %}">Main Course</a>
+            <a href="{% url 'rms-food_desserts' %}">Desserts</a>
+            <a href="{% url 'rms-food_beverages' %}" style="color: blueviolet;">Beverages</a>
+        </div>
+        
+        <br>
+        
+        <div class="food-list">
+            {% if user.is_authenticated %}
+                <div class="food-card">
+                    <div id="img">
+                        <img src="../../media/default.jpg" alt="">
+                    </div>
+                    <div class="food-info">
+                        <a href="{% url 'rms-addtolist' %}">Add a Food Item</a>
+                        </p>
+                    </div>
+                </div>
+                {% endif %}
+            {% for food_item in food_obj  %}
+                {% if food_item.food_type == 'Beverages' %}
+                <div class="food-card">
+                    <div id="img">
+                        <img src="{{ food_item.food_img.url }}" alt="">
+                    </div>
+                    <div class="food-info">
+                        <h5 class="food-title">{{ food_item.food_item}} </h5>
+                        <p class="food-price">Rs.{{ food_item.per_price}} 
+                            {% if user.is_authenticated %}
+                            <a href="{% url 'rms-updatetolist' food_item.id %} "> Edit</a>&ensp;
+                            <a style="color: #d0333c;" href="{% url 'food_confirm_delete' food_item.id %} "> Delete</a>
+                            {% endif %}
+                        </p>
+                    </div>
+                </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+        {% else %}
+        <p>Oops! No Starters Found!
+        {% if user.is_authenticated %}
+        <div>
+          <a  href="{% url 'rms-addtolist' %}">Add Item to Foodlist</a>
+        </div>
+        {% endif %}
+        </p>
+        {% endif %}
+    </section>
+</div>
+
+
+
+{% endblock content %}
