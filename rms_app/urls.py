@@ -18,8 +18,6 @@ from .views import (
     GeneratePdf,
     )
 
-
-
 urlpatterns = [
     
     #URLS FOR HOME AND FOODITEMS
