@@ -11,6 +11,11 @@ FOOD_TYPES = (
     ("Beverages", "Beverages"),
 )
 
+FOOD_SOURCE = (
+    ("Veg","Veg"),
+    ("Non-Veg","Non-Veg"),
+)
+
 FOOD_AVAILABILITY = (
     ("Yes","Yes"),
     ("No","No"),
@@ -19,8 +24,9 @@ FOOD_AVAILABILITY = (
 class Food(models.Model):
     food_item = models.CharField(max_length=100)
     per_price = models.PositiveIntegerField()
-    food_type = models.CharField(max_length=100,default="None", choices=FOOD_TYPES)
-    food_availability = models.CharField(max_length=100,default="Yes", choices=FOOD_AVAILABILITY)
+    food_type = models.CharField(max_length=100, default="None", choices=FOOD_TYPES)
+    food_source = models.CharField(max_length=100, default="Veg", choices=FOOD_SOURCE)
+    food_availability = models.CharField(max_length=100, default="Yes", choices=FOOD_AVAILABILITY)
     food_img = models.ImageField(default="default_food.jpg", upload_to="food_pics")
 
     def __str__(self):

@@ -66,7 +66,7 @@ class FoodImgViewBeverages(ListView):
 
 class AddToListView(LoginRequiredMixin, CreateView):
     model = Food
-    fields = ["food_item", "per_price","food_type","food_availability","food_img"]
+    fields = ["food_item", "per_price","food_type","food_source","food_availability","food_img"]
     template_name = "rms_app/addtolist.html"
     success_url = "/dashboard/addtolist"
 
@@ -76,7 +76,7 @@ class AddToListView(LoginRequiredMixin, CreateView):
 
 class UpdateListView(LoginRequiredMixin, UpdateView):
     model = Food
-    fields = ["food_item", "per_price","food_type","food_availability","food_img"]
+    fields = ["food_item", "per_price","food_type","food_source","food_availability","food_img"]
     template_name = "rms_app/addtolist.html"
     success_url = "/food"
     

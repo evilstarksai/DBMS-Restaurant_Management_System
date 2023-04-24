@@ -23,10 +23,10 @@
 <body>
     <nav>
         <div id="navbar">
-            <a href="{% url 'rms-home' %}" class='navbar-header ' style='color:var(--green-color)'>Restaurant e-Menu</a>
+            <a href="{% url 'rms-home' %}" class='navbar-header'>Restaurant e-Menu</a>
             <div class="navbar-links">
                 <a href="{% url 'rms-foodlist' %}" class="navbar-link">Food List</a>
-                <a href="{% url 'rms-food' %}" class="navbar-link">Food</a>
+                <a href="{% url 'rms-food' %}" class="navbar-link">Menu</a>
                 {% if user.is_authenticated %}
                 <a class="navbar-link" href="{% url 'createinvoice' %}" >Take Order</a>
                 <a class="navbar-link" href="{% url 'dashboard' %}" >Dashboard</a>

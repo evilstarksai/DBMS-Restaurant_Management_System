@@ -15,11 +15,14 @@ body {
 }
 
 :root {
-  --green-color: #289944;
-  --column-color: #4f9460cc;
+  --main-color: #552899;
+  --column-color: rgb(241, 164, 177);
   --bg-color: #eeefeb;
   --img-color: #616a76;
   --content-color: #040f0f;
+  --veg-color: rgb(61, 134, 61);
+  --non-veg-color: rgb(180, 66, 64);
+  --price-color: rgb(230, 228, 255);
   --head-font: "Montserrat", sans-serif;
   --text-font: "Lato", sans-serif;
   --shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
@@ -35,7 +38,7 @@ body {
 }
 
 #navbar {
-  height: 60px;
+  height: 75px;
   width: 100%;
   padding-left: 60px;
   padding-right: 60px;
@@ -51,7 +54,7 @@ body {
 
 .navbar-header {
   background-color: transparent;
-  color: var(--green-color);
+  color: var(--main-color);
   font-family: var(--head-font);
   font-style: normal;
   font-weight: bold;
@@ -59,23 +62,26 @@ body {
   line-height: 34px;
 }
 
+.navber-header:hover {
+  text-decoration: underline;
+}
+
 a {
   position: relative;
   font-family: var(--head-font);
   font-weight: 450;
-  text-decoration:var(--green-color);
+  text-decoration:var(--main-color);
 }
 
-a:not(.navbar-header)
- {
+a:not(.navbar-header) {
   display: inline-block;
   border-radius: 8px;
   padding: 4px 8px 4px 8px;
-  color: var(--green-color);
+  color: var(--main-color);
   background-color: #ffffff;
-  border-color: var(--green-color);
+  border-color: var(--main-color);
   transform: scale(1.02);
-  box-shadow: var(--shadow);
+  box-shadow: none;
   transition: all 0.2s ease-in;
 }
 
@@ -90,8 +96,8 @@ a:hover:not(.navbar-header) {
 button{
   border-radius: 8px;
   padding: 4px 8px 4px 8px;
-  color: var(--green-color);
-  text-decoration:var(--green-color);
+  color: var(--main-color);
+  text-decoration:var(--main-color);
   font-family: var(--head-font);
   font-weight: 450;
   background-color: #ffffff;
@@ -112,6 +118,7 @@ button:hover {
   justify-content: space-around;
   background-color: transparent;
 }
+
 .navbar-link {
   font-family: var(--head-font);
   font-style: normal;
@@ -119,6 +126,10 @@ button:hover {
   font-size: 22px;
   line-height: 27px;
   z-index: 25;
+}
+
+.navbar-link:hover {
+  background-color: pink;
 }
 
 /* For Home page */
@@ -157,7 +168,7 @@ button:hover {
   border-bottom: 4px solid;
   border-bottom-width: 50%;
   padding-bottom: 20px;
-  border-color: var(--green-color);
+  border-color: var(--main-color);
 }
 
 #C1 p {
@@ -187,7 +198,7 @@ button:hover {
   font-weight: normal;
   font-size: 24px;
   line-height: 34px;
-  color: #289944;
+  color: #51369b;
 }
 
 .dev2 {
@@ -198,7 +209,7 @@ button:hover {
   line-height: 34px;
   text-align: right;
   margin-left: auto;
-  color: #289944;
+  color: #51369b;
 }
 
 .dev1 p {
@@ -225,12 +236,12 @@ food page */
   padding: 0px 120px ;
   border: 1px solid #dddddd;
   position: relative;
-  top:120px;
-  left:120px;
+  top:100px;
+  left:80px;
   margin-bottom: 20px;
   text-align: center;
-  width:86.1%;
-  height: 280vh; 
+  width:90%;
+  /* height: 380vh; */
   border-radius: 15px;
   background-color: white;
   border: 1px solid #22222210;
@@ -252,15 +263,23 @@ food page */
   font-style: normal;
   border-bottom: 4px solid;
   padding-bottom: 40px;
-  border-color: var(--green-color);
+  border-color: var(--main-color);
+}
+
+.food-types {
+  display: flex;
+  gap: 40px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
 }
 
 .food-card {
   display: flex;
   flex-direction: column;
   text-align: center;
-  width: 20vw;
-  height: 18vw;
+  width: 20%;
+  height: 38%;
   min-width: 100%;
   min-height: 100%;
   border-radius: 15px;
@@ -299,9 +318,21 @@ food page */
   background-color: transparent;
 }
 
+.food-price-source-box {
+  display: inline-flex;
+  gap: 30px;
+}
+
 .food-price {
+  background-color: #616a76;
+  border-radius: 7px;
   line-height: 22px;
   background-color: transparent;
+}
+
+.food-source {
+  color: white;
+  border-radius: 7px;
 }
 
 #img {
@@ -310,7 +341,7 @@ food page */
   align-items: center;
   overflow: hidden;
   width: 100%;
-  height: 56%;
+  height: 75%;
   background: var(--img-color);
 }
 
@@ -339,7 +370,7 @@ table {
 
 td,
 th {
-  border: 2px solid var(--green-color);
+  border: 2px solid var(--main-color);
   border-collapse: collapse;
   text-align: left;
   padding: 8px;
@@ -479,7 +510,7 @@ tr:nth-child(even) {
 }
 
 hr {
-  border: 2px solid var(--green-color);
+  border: 2px solid var(--main-color);
   border-radius: 2px;
   opacity: 1;
 }
